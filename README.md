@@ -26,4 +26,5 @@ Install by [nuget](https://www.nuget.org/packages/Yuduan.Redis)
 ```
 ### Reference
 [Configuration Options](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options)
-[MORE](https://stackexchange.github.io/StackExchange.Redis/#documentation)ed萨芬地方撒旦撒
+
+[MORE](https://stackexchange.github.io/StackExchange.Redis/#documentation)
