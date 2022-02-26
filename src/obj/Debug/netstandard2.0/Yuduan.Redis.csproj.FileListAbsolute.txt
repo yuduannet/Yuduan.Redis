@@ -1,0 +1,10 @@
+E:\Code\Yuduan.Redis\src\bin\Debug\netstandard2.0\Yuduan.Redis.deps.json
+E:\Code\Yuduan.Redis\src\bin\Debug\netstandard2.0\Yuduan.Redis.dll
+E:\Code\Yuduan.Redis\src\bin\Debug\netstandard2.0\Yuduan.Redis.pdb
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.csproj.AssemblyReference.cache
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.AssemblyInfoInputs.cache
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.AssemblyInfo.cs
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.csproj.CoreCompileInputs.cache
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.dll
+E:\Code\Yuduan.Redis\src\obj\Debug\netstandard2.0\Yuduan.Redis.pdb
