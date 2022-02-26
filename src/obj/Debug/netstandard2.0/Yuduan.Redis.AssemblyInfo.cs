@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("a library extends StackExchange.Redis,support Net Framework 4.6.1+ and net Standa" +
     "rd 2.0+")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Yuduan Redis Extension")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Yuduan.Redis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

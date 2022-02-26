@@ -5,7 +5,7 @@
   },
   "projects": {
     "E:\\Code\\Yuduan.Redis\\src\\Yuduan.Redis.csproj": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "E:\\Code\\Yuduan.Redis\\src\\Yuduan.Redis.csproj",
         "projectName": "Yuduan.Redis",
