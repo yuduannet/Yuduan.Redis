@@ -20,7 +20,7 @@ namespace Yuduan.Redis
         /// <summary>
         /// 操作默认数据库 DB0
         /// </summary>
-        public IDatabaseAsync Default => _default ?? (_default = GetDatabase());
+        public IDatabaseAsync Default => _default ??= GetDatabase();
 
         #endregion
 

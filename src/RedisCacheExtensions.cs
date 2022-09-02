@@ -10,7 +10,7 @@ namespace Yuduan.Redis
 
         internal static ISerializer Serializer
         {
-            get => _serializer ?? (_serializer = new JsonSerializer());
+            get => _serializer ??= new JsonSerializer();
             set => _serializer = value;
         }
 
