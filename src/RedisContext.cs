@@ -16,19 +16,21 @@ namespace Yuduan.Redis
         private readonly SemaphoreSlim _connectionLock = new SemaphoreSlim(1, 1);
         private volatile ConnectionMultiplexer _connection;
         private readonly string _connectionString;
+        private readonly int _defaultDbIndex;
         private IDatabaseAsync _default;
         /// <summary>
         /// 操作默认数据库 DB0
         /// </summary>
-        public IDatabaseAsync Default => _default ??= GetDatabase();
+        public IDatabaseAsync Default => _default ??= GetDatabase(_defaultDbIndex);
 
         #endregion
 
         #region Ctor
 
-        public RedisContext(string connectionString)
+        public RedisContext(string connectionString, int defaultDbIndex = 0)
         {
             _connectionString = connectionString;
+            _defaultDbIndex = defaultDbIndex;
         }
 
         /// <summary>
@@ -36,8 +38,10 @@ namespace Yuduan.Redis
         /// </summary>
         /// <param name="connectionString">redis连接字符串</param>
         /// <param name="serializer">redis对象的自定义序列方式（默认为json）</param>
-        public RedisContext(string connectionString, ISerializer serializer)
+        /// <param name="defaultDbIndex">默认数据库下标</param>
+        public RedisContext(string connectionString, ISerializer serializer, int defaultDbIndex = 0)
         {
+            _defaultDbIndex = defaultDbIndex;
             _connectionString = connectionString;
             if (serializer != null)
                 RedisCacheExtensions.Serializer = serializer;
@@ -54,11 +58,11 @@ namespace Yuduan.Redis
         protected void Connect(CancellationToken token = default)
         {
             token.ThrowIfCancellationRequested();
-            if (_connection != null && _connection.IsConnected) return;
+            if (_connection is {IsConnected: true}) return;
             _connectionLock.Wait(token);
             try
             {
-                if (_connection != null && _connection.IsConnected) return;
+                if (_connection is {IsConnected: true}) return;
                 if (_default == null)
                 {
                     _connection?.Dispose();
@@ -79,11 +83,11 @@ namespace Yuduan.Redis
         protected async Task ConnectAsync(CancellationToken token = default)
         {
             token.ThrowIfCancellationRequested();
-            if (_connection != null && _connection.IsConnected) return;
+            if (_connection is {IsConnected: true}) return;
             await _connectionLock.WaitAsync(token);
             try
             {
-                if (_connection != null && _connection.IsConnected) return;
+                if (_connection is {IsConnected: true}) return;
                 if (_default == null)
                 {
                     _connection?.Dispose();
@@ -202,7 +206,7 @@ namespace Yuduan.Redis
         public async Task FlushDatabaseAsync(int db)
         {
             var endPoints = await GetEndPointsAsync();
-            Task[] tasks=new Task[endPoints.Length];
+            Task[] tasks = new Task[endPoints.Length];
             for (int i = 0; i < endPoints.Length; i++)
             {
                 tasks[i] = GetServerAsync(endPoints[i]).ContinueWith(async server =>
